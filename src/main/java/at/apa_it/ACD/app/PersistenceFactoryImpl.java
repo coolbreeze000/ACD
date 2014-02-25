@@ -10,9 +10,6 @@ import at.apa_it.ACD.repositoryjpa.PersistenceFactory;
 import at.apa_it.ACD.repositoryjpa.TenantJpaRepository;
 import at.apa_it.ACD.repositoryjpa.UserJpaRepository;
 
-/**
- * The factory for all repositories...
- */
 public class PersistenceFactoryImpl implements PersistenceFactory {
 
     private final HashMap<Class<?>, JpaRepository> repositories = new HashMap<Class<?>, JpaRepository>();
