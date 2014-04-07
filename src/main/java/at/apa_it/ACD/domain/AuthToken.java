@@ -13,9 +13,6 @@ import javax.validation.constraints.NotNull;
 @Table(name="authentification_tokens")
 public class AuthToken extends BasePersistable{
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -4872563746467975263L;
 	
 	@NotNull
@@ -46,6 +43,10 @@ public class AuthToken extends BasePersistable{
 
 	public void setUqid(String uqid) {
 		this.uqid = uqid;
+	}
+
+	public User getUser() {
+		return user;
 	}
 	
 }

@@ -1,5 +1,5 @@
 package at.apa_it.ACD.domain;
 
-public class DomainPackage {
+public interface DomainPackage {
 
 }
