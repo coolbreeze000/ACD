@@ -23,7 +23,7 @@ public class UserResource {
 		this.userRepository = userRepository;
 	}
 	
-	@RequestMapping(value="/", produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<User> findAllUsers()
 	{
