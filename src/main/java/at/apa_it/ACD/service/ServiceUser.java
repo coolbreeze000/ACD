@@ -1,22 +1,27 @@
 package at.apa_it.ACD.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import at.apa_it.ACD.domain.User;
 import at.apa_it.ACD.repository.UserRepository;
 
-@Service
-public class ApaCloudDashboardService {
+public class ServiceUser {
 	
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Transactional
-	public void createNewUser(String username)
+	public ServiceUser() {
+	}
+	
+	public void saveUser(User user)
 	{
-		User user = new User(username);
 		userRepository.save(user);
+	}
+	
+	public List<User> getAllUsers()
+	{
+		return userRepository.findAll();
 	}
 }
