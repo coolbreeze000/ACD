@@ -34,7 +34,7 @@ public class UserResource {
 	}
 	
 	@RequestMapping(value="/", consumes=MediaType.APPLICATION_JSON_VALUE)
-	@ResponseStatus(value=HttpStatus.OK)
+	@ResponseStatus(value=HttpStatus.CREATED)
 	@ResponseBody
 	public void saveUser(@RequestBody User user)
 	{
