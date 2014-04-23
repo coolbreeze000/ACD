@@ -15,6 +15,13 @@ import at.apa_it.ACD.repositoryjpa.AuthTokenJpaRepository;
 public class WhenUsingTenant extends AbstractDomainPersistenceTest{
 	
 	@Test
+	public void EnsureTenantConstructsCorrectly() throws Exception {
+		Tenant tenant = new Tenant();
+		
+		assertThat(tenant, notNullValue());
+	}
+	
+	@Test
 	public void EnsureUserPersistsCorrectly() throws Exception {
 		Tenant tenant = new Tenant();
 		tenant.setUqid("UQID555");

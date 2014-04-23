@@ -15,6 +15,13 @@ import at.apa_it.ACD.repositoryjpa.AuthTokenJpaRepository;
 public class WhenUsingUser extends AbstractDomainPersistenceTest{
 	
 	@Test
+	public void EnsureUserConstructsCorrectly() throws Exception {
+		User user = new User();
+		
+		assertThat(user, notNullValue());
+	}
+	
+	@Test
 	public void EnsureUserPersistsCorrectly() throws Exception {
 		User user = new User();
 		user.setUsername("Testusername1");

@@ -15,6 +15,13 @@ import at.apa_it.ACD.repositoryjpa.AuthTokenJpaRepository;
 public class WhenUsingAuthToken extends AbstractDomainPersistenceTest{
 	
 	@Test
+	public void EnsureAuthTokenConstructsCorrectly() throws Exception {
+		AuthToken authToken = new AuthToken();
+		
+		assertThat(authToken, notNullValue());
+	}
+	
+	@Test
 	public void EnsureAuthTokenPersistsCorrectly() throws Exception {
 		AuthToken authToken = new AuthToken();
 		authToken.setUqid("UQID123");

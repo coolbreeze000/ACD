@@ -7,7 +7,7 @@ import at.apa_it.ACD.domain.User;
 import at.apa_it.ACD.repositoryjpa.UserJpaRepository;
 
 @Service
-public class ApaCloudDashboardServiceJpa {
+public class ServiceJpaUser {
 	
 	@Autowired
 	private UserJpaRepository userJpaRepository;
