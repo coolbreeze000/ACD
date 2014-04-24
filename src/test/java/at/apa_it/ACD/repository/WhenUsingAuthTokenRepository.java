@@ -26,7 +26,7 @@ public class WhenUsingAuthTokenRepository extends AbstractJUnit4SpringContextTes
 
     @Test
     public void EnsureAuthTokenCanBeFoundByUqIdCorrectly() {
-        AuthToken byUqId = authTokenRepository.findByUqId("tokenxxfxx22222");
+        AuthToken byUqId = authTokenRepository.findByUqid("tokenxxfxx22222");
 
         Assert.assertNotNull(byUqId);
         Assert.assertEquals(byUqId.getUqid(), "tokenxxfxx22222");

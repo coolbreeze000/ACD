@@ -19,11 +19,8 @@ import at.apa_it.ACD.service.ServiceUser;
 @RequestMapping(value="/users")
 public class UserResource {
 	
+	@Autowired
 	private ServiceUser serviceUser;
-	
-	public UserResource() {
-		serviceUser = new ServiceUser();
-	}
 	
 	@RequestMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value=HttpStatus.OK)

@@ -26,7 +26,7 @@ public class WhenUsingTenantRepository extends AbstractJUnit4SpringContextTests 
 
     @Test
     public void EnsureTenantsCanBeFoundByUqIdCorrectly() {
-        Tenant byUqId = tenantRepository.findByUqId("UQID3");
+        Tenant byUqId = tenantRepository.findByUqid("UQID3");
 
         Assert.assertNotNull(byUqId);
         Assert.assertEquals(byUqId.getUqid(), "UQID3");

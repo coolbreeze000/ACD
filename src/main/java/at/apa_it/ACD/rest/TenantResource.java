@@ -1,6 +1,7 @@
 package at.apa_it.ACD.rest;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -17,12 +18,8 @@ import at.apa_it.ACD.service.ServiceTenant;
 @Controller
 @RequestMapping(value="/tenants")
 public class TenantResource {
-	
+	@Autowired
 	private ServiceTenant serviceTenant;
-	
-	public TenantResource() {
-		serviceTenant = new ServiceTenant();
-	}
 	
 	@RequestMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(value=HttpStatus.OK)
