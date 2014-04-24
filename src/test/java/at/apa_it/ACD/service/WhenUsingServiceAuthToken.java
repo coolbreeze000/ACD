@@ -22,7 +22,7 @@ public class WhenUsingServiceAuthToken extends AbstractJUnit4SpringContextTests 
     @Test
 	public void EnsureServiceUserSavesUserCorrectly() throws Exception {
 		AuthToken authToken = new AuthToken("tokenxxx222");
-		serviceAuthToken.saveTenant(authToken);
+		serviceAuthToken.saveAuthToken(authToken);
 		
 		Assert.assertTrue(serviceAuthToken.getAllAuthTokens().contains(authToken));
 	}
@@ -30,7 +30,7 @@ public class WhenUsingServiceAuthToken extends AbstractJUnit4SpringContextTests 
     @Test
 	public void EnsureServiceUserReturnsAllUsersCorrectly() throws Exception {
     	AuthToken authToken = new AuthToken("tenant555");
-    	serviceAuthToken.saveTenant(authToken);
+    	serviceAuthToken.saveAuthToken(authToken);
 		
 		Assert.assertTrue(serviceAuthToken.getAllAuthTokens().contains(authToken));
 	}

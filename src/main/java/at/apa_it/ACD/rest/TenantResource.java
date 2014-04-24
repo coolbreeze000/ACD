@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -18,10 +19,11 @@ import at.apa_it.ACD.service.ServiceTenant;
 @Controller
 @RequestMapping(value="/tenants")
 public class TenantResource {
+	
 	@Autowired
 	private ServiceTenant serviceTenant;
 	
-	@RequestMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE, method=RequestMethod.GET)
 	@ResponseStatus(value=HttpStatus.OK)
 	@ResponseBody
 	public List<Tenant> findAllTenants()
@@ -29,8 +31,8 @@ public class TenantResource {
 		return serviceTenant.getAllTenants();
 	}
 	
-	@RequestMapping(value="/", consumes=MediaType.APPLICATION_JSON_VALUE)
-	@ResponseStatus(value=HttpStatus.OK)
+	@RequestMapping(value={"", "/"}, consumes=MediaType.APPLICATION_JSON_VALUE, method=RequestMethod.POST)
+	@ResponseStatus(value=HttpStatus.CREATED)
 	@ResponseBody
 	public void saveTenant(@RequestBody Tenant tenant)
 	{

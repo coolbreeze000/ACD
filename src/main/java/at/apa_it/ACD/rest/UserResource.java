@@ -7,11 +7,11 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import at.apa_it.ACD.domain.User;
-import at.apa_it.ACD.repository.UserRepository;
 import at.apa_it.ACD.service.ServiceUser;
 
 
@@ -22,7 +22,7 @@ public class UserResource {
 	@Autowired
 	private ServiceUser serviceUser;
 	
-	@RequestMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE, method=RequestMethod.GET)
 	@ResponseStatus(value=HttpStatus.OK)
 	@ResponseBody
 	public List<User> findAllUsers()
@@ -30,7 +30,7 @@ public class UserResource {
 		return serviceUser.getAllUsers();
 	}
 	
-	@RequestMapping(value="/", consumes=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value={"", "/"}, consumes=MediaType.APPLICATION_JSON_VALUE, method=RequestMethod.POST)
 	@ResponseStatus(value=HttpStatus.CREATED)
 	@ResponseBody
 	public void saveUser(@RequestBody User user)

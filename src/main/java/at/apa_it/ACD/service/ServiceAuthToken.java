@@ -19,7 +19,7 @@ public class ServiceAuthToken {
 	public ServiceAuthToken() {
 	}
 	
-	public void saveTenant(AuthToken authToken)
+	public void saveAuthToken(AuthToken authToken)
 	{
 		authTokenRepository.save(authToken);
 	}

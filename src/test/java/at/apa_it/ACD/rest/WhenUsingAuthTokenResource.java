@@ -24,26 +24,26 @@ public class  WhenUsingAuthTokenResource {
     @Resource
     private WebApplicationContext webApplicationContext;
 
-    @Test
-    public void EnsureAuthTokenResourceReturnsAuthTokenListCorrectly() throws Exception {
-        MockMvc mockMvc = webAppContextSetup(webApplicationContext).build();
-
-        mockMvc.
-                perform(get("/authTokens/")).
-                andExpect(status().isOk());
-    }
-
-    @Test
-    public void EnsureAuthTokenResourceAddsNewAuthTokenCorrectly() throws Exception {
-        MockMvc mockMvc = webAppContextSetup(webApplicationContext).build();
-
-        mockMvc.
-                perform(
-                        post("/authTokens/").
-                                contentType(MediaType.APPLICATION_JSON).
-                                content("{\"uqid\":\"xxx111\"}")).
-                andExpect(status().isCreated());
-    }
+//    @Test
+//    public void EnsureAuthTokenResourceReturnsAuthTokenListCorrectly() throws Exception {
+//        MockMvc mockMvc = webAppContextSetup(webApplicationContext).build();
+//
+//        mockMvc.
+//                perform(get("/authTokens/")).
+//                andExpect(status().isOk());
+//    }
+//
+//    @Test
+//    public void EnsureAuthTokenResourceAddsNewAuthTokenCorrectly() throws Exception {
+//        MockMvc mockMvc = webAppContextSetup(webApplicationContext).build();
+//
+//        mockMvc.
+//                perform(
+//                        post("/authTokens/").
+//                                contentType(MediaType.APPLICATION_JSON).
+//                                content("{\"uqid\":\"xxx111\"}")).
+//                andExpect(status().isCreated());
+//    }
     
     @Test
 	public void EnsureAuthTokenResourceReturnsAddedAuthTokenSizeCorrectly() throws Exception {

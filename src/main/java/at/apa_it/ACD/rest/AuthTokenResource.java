@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -23,7 +24,7 @@ public class AuthTokenResource {
 	private ServiceAuthToken serviceAuthToken;
 	
 	
-	@RequestMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE, method=RequestMethod.GET)
 	@ResponseStatus(value=HttpStatus.OK)
 	@ResponseBody
 	public List<AuthToken> findAllAuthTokens()
@@ -31,11 +32,11 @@ public class AuthTokenResource {
 		return serviceAuthToken.getAllAuthTokens();
 	}
 	
-	@RequestMapping(value="/", consumes=MediaType.APPLICATION_JSON_VALUE)
-	@ResponseStatus(value=HttpStatus.OK)
+	@RequestMapping(value={"", "/"}, consumes=MediaType.APPLICATION_JSON_VALUE, method=RequestMethod.POST)
+	@ResponseStatus(value=HttpStatus.CREATED)
 	@ResponseBody
 	public void saveAuthToken(@RequestBody AuthToken authToken)
 	{
-		serviceAuthToken.saveTenant(authToken);
+		serviceAuthToken.saveAuthToken(authToken);
 	}
 }
